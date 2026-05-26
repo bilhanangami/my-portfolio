@@ -190,3 +190,52 @@ document.addEventListener("DOMContentLoaded", function () {
     displaySkills();
     checkUser();
 });
+const quotes = [
+    "Believe in yourself.",
+    "Success is not final, failure is not fatal.",
+    "Keep going, you're getting there.",
+    "Dream big and dare to fail.",
+    "Hard work beats talent when talent doesn't work hard."
+];
+
+let autoInterval = null;
+
+function generateQuote() {
+    let randomIndex = Math.floor(Math.random() * quotes.length);
+    let quoteElement = document.getElementById("quote");
+
+    quoteElement.innerText = quotes[randomIndex];
+
+    // restart fade animation
+    quoteElement.classList.remove("fade");
+    void quoteElement.offsetWidth;
+    quoteElement.classList.add("fade");
+}
+
+// COPY BUTTON
+function copyQuote() {
+    let quoteText = document.getElementById("quote").innerText;
+
+    navigator.clipboard.writeText(quoteText)
+        .then(() => {
+            alert("Quote copied!");
+        })
+        .catch(err => {
+            alert("Failed to copy");
+        });
+}
+
+// AUTO START
+function startAuto() {
+    if (autoInterval) return; // prevent multiple intervals
+
+    autoInterval = setInterval(() => {
+        generateQuote();
+    }, 3000); // every 3 seconds
+}
+
+// STOP AUTO
+function stopAuto() {
+    clearInterval(autoInterval);
+    autoInterval = null;
+}

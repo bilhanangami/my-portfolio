@@ -1,125 +1,147 @@
-/* GENERAL PAGE STYLING */
+/* =========================
+   GENERAL PAGE STYLING
+========================= */
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #21467e;
     margin: 0;
     padding: 0;
-    background-color: #6570ea;
     color: #333;
-    line-height: 1.6;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header {
-    background-color: #1e3a8a;
+    background-color: #0d6efd;
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 20px;
+}
+header h1{
+    font-size: 45px;
+}
+.fade {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 36px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-/* SECTIONS */
+/* =========================
+   NAVBAR (Bootstrap override)
+========================= */
 
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* =========================
+   SECTION CARDS
+========================= */
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* spacing between sections */
 section {
-    background-color: white;
-    margin: 20px;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
 
-/* HEADINGS */
+/* =========================
+   HEADINGS
+========================= */
 
-h2 {
-    color: #1e3a8a;
-    margin-bottom: 15px;
+h1, h2, h3 {
+    font-weight: bold;
 }
 
-h3 {
-    color: #2563eb;
-}
-
-/* PARAGRAPHS */
-/* IMAGE STYLING */
+/* =========================
+   IMAGES
+========================= */
 
 img {
-    width: 150px;
+    max-width: 100px;
     height: auto;
-    border-radius: 300px;
-    border: 2px solid hwb(210 15% 8%);
     display: block;
-    margin-top: 100px;
-    margin-bottom: 50px;
-}
-p {
-    font-size: 15px;
-    text-align: justify;
+    margin: 10px 0;
 }
 
-/* LISTS */
-
-ul, ol {
-    padding-left: 20px;
+/* profile image special styling */
+.img-box {
+    margin: 20px;
 }
-
-li {
-    margin-bottom: 8px;
-}
-
-/* VIDEO STYLING */
-
-video,
-iframe {
+/* PROFILE IMAGE ITSELF */
+.img-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-    max-width: 100%;
 }
-/* FOOTER */
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    cursor: pointer;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+    background-color: white;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    background-color: hsl(239, 64%, 33%);
-    color: rgba(27, 66, 111, 0.79);
+    background-color: #0d6efd;
+    color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 15px;
+    margin-top: 30px;
 }
 
-/* FLEXBOX LAYOUT FOR ABOUT SECTION */
-
-#about {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* HOVER EFFECT FOR SECTIONS */
-
-section:hover {
-    transform: translateY(-3px);
-    transition: 0.3s;
-}
-
-/* RESPONSIVE DESIGN */
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
 
 @media (max-width: 768px) {
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
     img {
-        width: 50%;
-        height: auto;
+        max-width: 150px;
     }
 
-    iframe,
-    video {
-        width: 100%;
+    header {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 10px;
     }
 }
